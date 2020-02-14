@@ -1,0 +1,30 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto d-flex justify-content-between">
+      <h3 class="pt-1 mr-5"><strong>BestCocktailsInTown</strong></h3>
+
+    </ul>
+  </div>
+
+<%= link_to 'Add a cocktail', new_cocktail_path, {class: "btn btn-success"}  %>
+
+</div>
+
+
+<div class="container">
+<% @cocktails.each do |cocktail| %>
+  <%= link_to cocktail_path(cocktail), class: "index_card" do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.image_url %>)">
+      <p><%= cocktail.name.capitalize %></p>
+    </div>
+  <% end %>
+
+<% end %>
+
+</div>

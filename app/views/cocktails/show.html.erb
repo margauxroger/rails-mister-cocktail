@@ -1,0 +1,40 @@
+  <div class="banner position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @cocktail.image_url %>);">
+      <i class="fas fa-angle-double-down position-absolute" style="color:white; font-size:50px; bottom:20px; opacity:0.4;" ></i>
+    <div class="container">
+      <h1 class="text-center vertical-align-center"><%= @cocktail.name.capitalize %></h1>
+    </div>
+  </div>
+  <div class='position-relative pr-5 '>
+<div class="container">
+      <% @doses.each do |dose| %>
+      <div class="row m-4">
+        <div class="card w-100" style="border:none;">
+          <div class="card-header" style="background: rgb(50,50,50);color:white;">
+            <div class="row">
+              <div class="col-11">
+                <strong><%= dose.ingredient.name.capitalize %></strong>
+              </div>
+            <div class="col-1 d-flex justify-content-end align-items-center"><i class="far fa-square"></i></div>
+          </div>
+          </div>
+          <div class="card-body" style="background: rgb(80,80,80); border:none;">
+            <div class="card-title">
+              <div class="row">
+                <div class="col-11">
+                <%= dose.description %>
+                </div>
+                <div class="col-1 d-flex justify-content-end">
+                <%= link_to dose_path(dose.id), method: :delete, data: { confirm: "Are you sure?"} do %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <%= link_to 'Go Back', cocktails_path , {class: "btn btn-primary test2"}  %>
+  <%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail), {class: "btn btn-warning test"}  %>
+</div>
+</div>

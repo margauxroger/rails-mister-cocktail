@@ -15,4 +15,12 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-console.log('Hello World from Webpacker')
+import 'bootstrap';
+import { initShowPhoto } from './components/photo-autocomplete';
+
+initShowPhoto();
+
+
+
+console.log('Hello World from Webpacker');
+// console.log("have a good day");
